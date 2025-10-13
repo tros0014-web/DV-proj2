@@ -1,0 +1,94 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+   	"title": { "text": "Major storms, 1980 to 2025" },
+    "projection" : {"type" : "equirectangular"},
+
+    "width": 450,
+    "height": 300,
+
+    "params" : [
+    {
+        "name" : "whichType",
+        "value" : "hail",
+        "bind" : {
+            "input" : "select",
+            "options" : ["hail", "lightning", "rain", "wind"],
+            "name" : "Select storm type: "
+        }
+    }
+
+    ],
+
+    "layer" : [ 
+        {
+            "data" : {
+                "url" : "data/ne_50m_state+grid_AUS.json",
+                "format" : {"type" : "topojson", "feature" :"ne_50m_admin_1_states_provinces" }            
+            },
+            "mark" : {"type" : "geoshape", "fill" : "gray", "stroke": "black"}
+        },
+        {
+            "data" : {
+                "url" : "data/ne_50m_state+grid_AUS.json",
+                "format" : {"type" : "topojson", "feature" :"ne_50m_graticules_10" }            
+            },
+            "mark" : {"type" : "geoshape", "fill" : null, "stroke": "lightgray"}
+        },
+        {
+            "data" : {
+                "url" : "data/Inj ALL 80-25.csv"
+            },
+
+           "transform" : [
+                {
+                    "filter" : { "field" :"TYPE2", "equal" : {"expr" :"whichType"}} 
+                }
+            ],
+
+            "mark" : "circle",
+
+            "encoding" : {
+                "longitude" : {"field" : "Longitude", "type" :"quantitative"},
+                "latitude" : {"field" : "Latitude", "type" :"quantitative"},
+                "size" : {"field" : "Number of injuries", "type" :"quantitative",
+                    "scale" : {
+                        "type" : "threshold",
+                        "domain" : [2, 5, 10],
+                        "range" : [20, 50, 125, 300]    
+                    },
+                    "legend" : {
+                        "fillColor" : "gray",                        
+                        "titleColor" : "white",
+                        "labelColor" : "white",
+
+                        "padding" : 15
+                    }
+                },
+                "color" : {"field" : "Number of injuries", "type" : "quantitative",
+                    "scale" : { 
+                        "type" : "threshold",
+                        "domain" : [2, 5, 10],    
+                        "range" : ["#ffffb2", "#fecc5c", "#fd8d3c", "#ff0000"]
+                    }             
+                },
+                
+                "opacity" : {"value" : 0.6},
+                
+                "tooltip" : [
+                    {"field" : "TYPE2", "title" : "Storm type"},
+                    {"field" : "Year", "type" :"ordinal"},
+                    {"field" : "State", "type" :"nominal"}, 
+
+                    {"field" : "Number of injuries", "type" :"quantitative"},
+                    {"field" : "Number of deaths", "type" :"quantitative"},
+  
+                    {"field" : "Feature", "type" :"nominal"},
+                    {"field" : "Measure", "type" :"quantitative"}
+
+                ]
+
+            }
+        }        
+
+    ]
+}        

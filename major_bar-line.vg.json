@@ -1,0 +1,120 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title" : "Major storms breakdown, 1980 to 2025 ",
+
+    "data" : {
+        "url" : "data/Inj ALL 80-25.csv"
+    },
+
+    "vconcat" : [
+        {
+        "layer" : [
+            {
+                "title" : "Over time",
+                "width" : 300,
+
+                "mark" : "line",
+
+                "params" : [
+                {
+                    "name" : "brushYear",
+                    "select" : {
+                        "type" : "interval",
+                        "encodings" : ["x"]
+                    }
+                }
+            ],
+
+                "encoding" : {
+                    "x" : { 
+                        "field" : "Year", "type" : "quantitative",
+                        "axis" : {"format" : ".0f"}                        
+                    },
+                        
+                    "y" : { 
+                        "aggregate" : "sum", "title" : "Number of injuries",
+                        "field" : "Number of injuries", "type" : "quantitative"},
+                    "color" : {
+                        "field" : "TYPE2", "type" : "nominal", 
+                        "title" : "Storm type"
+                    },
+                    
+                    "tooltip" : [
+                        {"field" : "TYPE2", "type" : "nominal", "title" : "Storm type"},                       
+                        {"field" : "Year", "type" : "ordinal"},
+                        {"field" : "State", "type" : "nominal"},
+
+                        {"field" : "Number of injuries", "type" : "quantitative"}
+                    ]
+                }
+            },
+
+            {
+                "mark" : {
+                    "type" : "text",
+                    "text" : ["ANNOTATION PENDING"],
+                    "align" : "center",
+                    "x" : "width",
+                    "dy" : -50, "dx" : 20
+                },
+                "data" : {
+                    "values" : [{}]
+                } 
+            }        
+        ]
+        },
+        {
+        "layer" : [
+            {
+                "title" : "Between states",
+                "width" : 300,
+
+                "transform" : [
+                    {"filter" : {"param" : "brushYear"} }                
+                ],
+
+                "mark" : "bar",
+
+                "encoding" : {
+                    "x" : { 
+                        "field" : "State", "type" : "nominal", "title" : "State"
+                    },
+                    "y" : {
+                        "field" : "Number of injuries", "type" : "quantitative"
+                    },
+                    
+                    "color" : {
+                        "field" : "TYPE2", "type" : "nominal", "title" : "Storm type"
+                    },
+
+                    "tooltip" : [
+                        {"field" : "TYPE2", "type" : "nominal", "title" : "Storm type"},
+                        {"field" : "Year", "type" : "ordinal"},
+                        {"field" : "State", "type" : "nominal"},
+
+                        {"field" : "Number of injuries", "type" : "quantitative"},
+                        {"field" : "Number of deaths", "type" : "quantitative"},
+
+                        {"field" : "Feature", "type" : "nominal"},
+                        {"field" : "Measure", "type" : "quantitative"}
+                    ]
+                }
+            },
+
+            {
+                "mark" : {
+                    "type" : "text",
+                    "text" : ["ANNOTATION PENDING"],
+                    "align" : "center",
+                    "x" : "width",
+                    "dy" : -50, "dx" : 20
+                },
+                "data" : {
+                    "values" : [{}]
+                } 
+            }        
+        ]
+        }
+    ]
+
+}

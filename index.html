@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Storms in Australia since 1980</title>
+
+    <link rel="stylesheet" href="styling.css" >	
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- JavaScript emdedding, super short so just storing inside HTML -->
+    <script>  
+        vegaEmbed("#map_weather_div ", "weather_map.vg.json").then(function(result) 
+        {        }).catch(console.error);
+    
+        vegaEmbed("#map_all_div ", "all_map.vg.json").then(function(result) 
+        {        }).catch(console.error);
+
+         vegaEmbed("#smalls_all_div ", "all_bar-line.vg.json").then(function(result) 
+        {        }).catch(console.error);
+        
+        vegaEmbed("#map_major_div ", "major_map.vg.json").then(function(result) 
+        {        }).catch(console.error);
+
+         vegaEmbed("#smalls_major_div ", "major_bar-line.vg.json").then(function(result) 
+        {        }).catch(console.error);
+
+    </script>
+
+    <!-- Pure CSS library-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+
+</head>
+
+<body>
+    <h1> Storms in Australia</h1>
+
+    <!-- Introduction & weather -->
+    <div class="pure-g">
+        <div id="intro">
+            <p> 
+                Storms in Australia can be severe <b>...  AND UHHH </b>
+            <br> Note that the BOM storms data is biased towards populated 
+            <br> regions, as storms are reported rather than recorded on sensors.
+            <br>
+            <br> Select the weather or storm type in each map, and brush 
+            <br> the line charts to filter the bars to a time period.
+            <br>
+            <br> Data sourced primarily from the Bureau of Meteorology
+            <br> supported with coordinates of cities from SimpleMaps
+            <ul>  
+                <li> Severe Storms Archive, <a href = "https://www.bom.gov.au/australia/stormarchive/"> available here</a> </li>
+                <li> Major cities climate, <a href = "https://www.bom.gov.au/climate/australia/cities/ "> available here</a> </li>
+                <li> Australian Cities, <a href = "https://simplemaps.com/data/au-cities"> available here</a> </li>
+            </ul>
+            </p>
+            
+        </div>
+
+        <div class="pure-u-1-8">
+
+        </div>
+
+        <div class="pure-u-2-5" id="map_weather_div">
+            <p> There should be a weather map here</p>
+            
+        </div>
+    </div>
+
+    <!-- All storms, density / number-->
+    <div class="pure-g">
+        <div class="pure-u-1-2" id="map_all_div">
+            <p> There should be a storm density map here </p>           
+        </div>
+
+        <div class="pure-u-1-2"  id="smalls_all_div">
+            <p> There should be storm number stats here</p>            
+        </div>
+    </div>
+
+    <!-- Major storms, injuries -->
+    <div class="pure-g">
+        <div class="pure-u-1-2" id="map_major_div">
+            <p> There should be a major storms map here </p>           
+        </div>
+
+        <div class="pure-u-1-2"  id="smalls_major_div">
+            <p> There should be a major storms stats here</p>            
+        </div>
+    </div>
+    
+</body>
+
+</html>
