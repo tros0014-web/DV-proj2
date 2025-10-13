@@ -1,0 +1,28 @@
+LOCATION,Latitude,Longitude,Weather,Extreme value
+Adelaide,-34.9275,138.6,Temp max (C),29.5
+Adelaide,-34.9275,138.6,Temp min (C),7.5
+Adelaide,-34.9275,138.6,Monthly rain (mm),80
+Alice Springs,-23.7,133.87,Temp max (C),36.9
+Alice Springs,-23.7,133.87,Temp min (C),3.9
+Alice Springs,-23.7,133.87,Monthly rain (mm),115
+Brisbane,-27.4678,153.0281,Temp max (C),29.2
+Brisbane,-27.4678,153.0281,Temp min (C),9.3
+Brisbane,-27.4678,153.0281,Monthly rain (mm),145
+Darwin,-12.4381,130.8411,Temp max (C),33.5
+Darwin,-12.4381,130.8411,Temp min (C),19.4
+Darwin,-12.4381,130.8411,Monthly rain (mm),466
+Hobart,-42.8806,147.325,Temp max (C),22.2
+Hobart,-42.8806,147.325,Temp min (C),4.9
+Hobart,-42.8806,147.325,Monthly rain (mm),61
+Melbourne,-37.8142,144.9631,Temp max (C),26.5
+Melbourne,-37.8142,144.9631,Temp min (C),5.5
+Melbourne,-37.8142,144.9631,Monthly rain (mm),61
+Perth,-31.9559,115.8606,Temp max (C),31.5
+Perth,-31.9559,115.8606,Temp min (C),8
+Perth,-31.9559,115.8606,Monthly rain (mm),148
+Sydney,-33.8678,151.21,Temp max (C),27
+Sydney,-33.8678,151.21,Temp min (C),8.1
+Sydney,-33.8678,151.21,Monthly rain (mm),119
+Townsville,-19.25,146.8167,Temp max (C),31.8
+Townsville,-19.25,146.8167,Temp min (C),14
+Townsville,-19.25,146.8167,Monthly rain (mm),292
