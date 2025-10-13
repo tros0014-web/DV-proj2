@@ -10,8 +10,16 @@
 
 #map_all_div {
     margin: auto;
-    text-align: center;
+    text-align: left;
     padding : 5 ;    
+}
+
+#smalls_all_div{
+    text-align : center;
+}
+
+#smalls_major_div{
+    text-align: left;
 }
 
 #map_major_div {
