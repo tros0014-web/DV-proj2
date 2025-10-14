@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title" : "Major storms breakdown, 1980 to 2025 ",
 
     "data" : {
         "url" : "data/Inj ALL 80-25.csv"
@@ -10,7 +9,7 @@
         {
         "layer" : [
             {
-                "title" : "Over time",
+                "title" : "Over time (brush to filter bars)",
                 "width" : 300,
 
                 "mark" : "line",
@@ -52,10 +51,13 @@
             {
                 "mark" : {
                     "type" : "text",
-                    "text" : ["ANNOTATION PENDING"],
+                    "text" : [
+                        "In 1995 there were 9 wind",
+                        "storms, causing 79 injuries",
+                        "- largely in South Australia."],
                     "align" : "center",
                     "x" : "width",
-                    "dy" : -50, "dx" : 20
+                    "dy" : -70, "dx" : -70
                 },
                 "data" : {
                     "values" : [{}]
@@ -104,7 +106,10 @@
             {
                 "mark" : {
                     "type" : "text",
-                    "text" : ["ANNOTATION PENDING"],
+                    "text" : [
+                        "Lightning injuries occur",
+                        "almost exclusively in Victoria,",
+                        "at 83% of all time. "],
                     "align" : "center",
                     "x" : "width",
                     "dy" : -50, "dx" : 20

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Storms in Australia since 1980</title>
+    <title>Storms in Australia</title>
 
     <link rel="stylesheet" href="styling.css" >	
 
+    <!-- VegaLite library-->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
@@ -38,60 +39,91 @@
 </head>
 
 <body>
-    <h1> Storms in Australia</h1>
+    <div class="contain"> 
+        <h1> Storms in Australia</h1>
 
-    <!-- Introduction & weather -->
-    <div class="pure-g">
-        <div id="intro">
-            <p> 
-                Storms in Australia can be severe <b>...  AND UHHH </b>
-            <br> Note that the BOM storms data is biased towards populated 
-            <br> regions, as storms are reported rather than recorded on sensors.
-            <br>
-            <br> Select the weather or storm type in each map, and brush 
-            <br> the line charts to filter the bars to a time period.
-            <br>
-            <br> Data sourced primarily from the Bureau of Meteorology
-            <br> supported with coordinates of cities from SimpleMaps
-            <ul>  
-                <li> Severe Storms Archive, <a href = "https://www.bom.gov.au/australia/stormarchive/"> available here</a> </li>
-                <li> Major cities climate, <a href = "https://www.bom.gov.au/climate/australia/cities/ "> available here</a> </li>
-                <li> Australian Cities, <a href = "https://simplemaps.com/data/au-cities"> available here</a> </li>
-            </ul>
+        <!-- Introduction & weather -->
+        <div class="pure-g">
+            <div class="intro">
+                <p> 
+                    Storms in Australia can cause significant harm, with around 350
+                <br>storms per year being considered severe, & 1 to 2 of these 
+                <br>causing recorded injury.
+                </p>
+
+                <h3> Weather extremes </h3>
+                <p>
+                    The map on the right considers the extreme values of an average
+                <br>year. Weather at each major city is averaged from 1980 to 2010. 
+                <br>Then the most extreme (max/min) value is noted. 
+                </p>       
+                
+                <h3> Reporting bias</h3>
+                <p>
+                    Note that the storm data is biased towards populated regions,
+                <br> as storms are reported rather than recorded on sensors. This
+                <br> is reflected in the weather map by only plotting at major cities.
+                </p>
+            </div>
+
+            <div class="pure-u-1-2" id="map_weather_div">
+                <p> There should be a weather map here</p>
+                
+            </div>
+        </div>
+
+        <!-- All storms, density / number-->
+        <div class="heading">
+            <h3> All reported severe storms</h3>
+            <p>
+                There have been <b>15,876</b> storms from 1980 to 2025.            
+            <br>Almost all of these <b>did not </b> cause significant damages. 
             </p>
-            
         </div>
 
-        <div class="pure-u-1-8">
+        <div class="pure-g">
+            <div class="pure-u-1-2"  id="smalls_all_div">
+                <p> There should be storm number stats here</p>            
+            </div>
 
+            <div class="pure-u-1-2" id="map_all_div">
+                <p> There should be a storm density map here </p>           
+            </div>
         </div>
 
-        <div class="pure-u-2-5" id="map_weather_div">
-            <p> There should be a weather map here</p>
-            
+        <!-- Major storms, injuries -->
+        <div class="heading">
+            <h3> Most significant severe storms</h3>
+            <p>
+                There have been <b>72</b> storms from 1980 to 2025.            
+            <br>These storms have caused <b>injuries </b> & even death. Additional
+            <br>information is available by hovering over each storm.
+            </p>
         </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-2" id="map_major_div">
+                <p> There should be a major storms map here </p>           
+            </div>
+
+            <div class="pure-u-1-2"  id="smalls_major_div">
+                <p> There should be a major storms stats here</p>            
+            </div>
+        </div>
+
+        <div class="heading">
+        <h3> References</h3>
+        <p>
+            Data sourced primarily from the Bureau of Meteorology (BOM)                
+        <br> supported with coordinates of cities from SimpleMaps (SM).
+        <ul>  
+            <li> BOM - Major cities climate, <a href = "https://www.bom.gov.au/climate/australia/cities/ "> available here</a> </li>
+            <li> SM - Australian Cities, <a href = "https://simplemaps.com/data/au-cities"> available here</a> </li>
+            <li> BOM - Severe Storms Archive, <a href = "https://www.bom.gov.au/australia/stormarchive/"> available here</a> </li>
+        </ul>
+        </p>
     </div>
 
-    <!-- All storms, density / number-->
-    <div class="pure-g">
-        <div class="pure-u-1-2"  id="smalls_all_div">
-            <p> There should be storm number stats here</p>            
-        </div>
-
-        <div class="pure-u-1-2" id="map_all_div">
-            <p> There should be a storm density map here </p>           
-        </div>
-    </div>
-
-    <!-- Major storms, injuries -->
-    <div class="pure-g">
-        <div class="pure-u-1-2" id="map_major_div">
-            <p> There should be a major storms map here </p>           
-        </div>
-
-        <div class="pure-u-1-2"  id="smalls_major_div">
-            <p> There should be a major storms stats here</p>            
-        </div>
     </div>
     
 </body>

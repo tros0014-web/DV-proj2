@@ -3,8 +3,9 @@
    	"title": { "text": "Average weather at major cities, 1980 to 2010" },
     "projection" : {"type" : "equirectangular"},
 
-    "width": 450,
-    "height": 300,
+    "width": 500,
+    "height": 400,
+    "view": {"fill": "lightblue"},
 
     "params" : [
     {
@@ -22,16 +23,16 @@
         {
             "data" : {
                 "url" : "data/ne_50m_state+grid_AUS.json",
-                "format" : {"type" : "topojson", "feature" :"ne_50m_admin_1_states_provinces" }            
+                "format" : {"type" : "topojson", "feature" :"ne_50m_graticules_10" }            
             },
-            "mark" : {"type" : "geoshape", "fill" : "gray", "stroke": "black"}
+            "mark" : {"type" : "geoshape", "fill" : null, "stroke": "grey"}
         },
         {
             "data" : {
                 "url" : "data/ne_50m_state+grid_AUS.json",
-                "format" : {"type" : "topojson", "feature" :"ne_50m_graticules_10" }            
+                "format" : {"type" : "topojson", "feature" :"ne_50m_admin_1_states_provinces" }            
             },
-            "mark" : {"type" : "geoshape", "fill" : null, "stroke": "lightgray"}
+            "mark" : {"type" : "geoshape", "fill" : "lightgray", "stroke": "black"}
         },
         {
             "data" : {
@@ -54,7 +55,8 @@
                     "field" : "Extreme value", "type" :"quantitative",                    
                     "scale" : {
                         "type" : "quantize",
-                        "nice" : 4
+                        "nice" : 4,
+                        "scheme" : "greens"
                     },
                     "legend" : {
                         "title" : {"signal" : "whichType"}
@@ -62,6 +64,7 @@
                 },
 
                 "size" : {"value" : 2000},
+                "opacity" : {"value" : 0.9},
 
                 "tooltip" : [
                     {"field" : "LOCATION", "type": "nominal", "title" : "City name"},

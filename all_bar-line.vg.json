@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title" : "All storms breakdown, 1980 to 2025 ",
 
     "data" : {
         "url" : "data/Bulk ALL 80-25.csv"
@@ -10,7 +9,7 @@
         {
         "layer" : [
             {
-                "title" : "Over time",
+                "title" : "Over time (brush to filter bars)",
                 "width" : 300,
 
                 "mark" : "line",
