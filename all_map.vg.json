@@ -14,7 +14,8 @@
         "bind" : {
             "input" : "select",
             "options" : ["hail", "lightning", "rain", "wind"],
-            "name" : "Select storm type: "
+            "name" : "Select storm type: ",
+            "labels" :  ["Hail", "Lightning", "Rain", "Wind"]
         }
     }
 

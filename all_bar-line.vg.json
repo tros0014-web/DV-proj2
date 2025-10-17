@@ -9,10 +9,10 @@
         {
         "layer" : [
             {
-                "title" : "Over time (brush to filter bars)",
+                "title" : "Over time (drag to select a period)",
                 "width" : 300,
 
-                "mark" : "line",
+            "mark" : "line",
 
                 "params" : [
                 {
@@ -22,12 +22,13 @@
                         "encodings" : ["x"]
                     }
                 }
-            ],
+                ],
 
                 "encoding" : {
                     "x" : { 
                         "field" : "Year", "type" : "quantitative",
-                        "axis" : {"format" : ".0f"}                        
+                        "axis" : {"format" : ".0f"},
+                        "scale" : {"domain" : [1975,2025]}             
                         },
                         
                     "y" : { 
@@ -50,63 +51,48 @@
             {
                 "mark" : {
                     "type" : "text",
-                    "text" : ["ANNOTATION PENDING"],
+                    "text" : [
+                        "Wind & rain storms were the",
+                        "most common by far at around",
+                        "6,700 & 5,800 storms respectively."],
                     "align" : "center",
-                    "x" : "width",
-                    "dy" : -50, "dx" : 20
+                    "dy" : -70, "dx" : -50
                 },
                 "data" : {
                     "values" : [{}]
-                } 
+                }
             }        
         ]
         },
         {
-        "layer" : [
-            {
-                "title" : "Between states",
-                "width" : 300,
+            "title" : "Between states",
+            "width" : 300,
 
-                "transform" : [
-                    {"filter" : {"param" : "brushYear"} }                
-                ],
+            "transform" : [
+                {"filter" : {"param" : "brushYear"} }                
+            ],
 
-                "mark" : "bar",
+            "mark" : "bar",
 
-                "encoding" : {
-                    "x" : { 
-                        "field" : "State", "type" : "nominal", "title" : "State"
-                    },
-                    "y" : { 
-                        "aggregate" : "count", "title" : "Number of storms"
-                    },
-
-                    "color" : {
-                        "field" : "TYPE2", "type" : "nominal", "title" : "Storm type"
-                    },
-
-                    "tooltip" : [
-                        {"field" : "TYPE2", "type" : "nominal", "title" : "Storm type"},
-                        {"field" : "Year", "type" : "ordinal"},
-                        {"field" : "State", "type" : "nominal"}                        
-                    ]
-                }
-            },
-
-            {
-                "mark" : {
-                    "type" : "text",
-                    "text" : ["ANNOTATION PENDING"],
-                    "align" : "center",
-                    "x" : "width",
-                    "dy" : -50, "dx" : 20
+            "encoding" : {
+                "x" : { 
+                    "field" : "State", "type" : "nominal", "title" : "State",
+                    "sort" : {"op" : "count", "order" : "descending"}
                 },
-                "data" : {
-                    "values" : [{}]
-                } 
-            }        
-        ]
-        }
-    ]
+                "y" : { 
+                    "aggregate" : "count", "title" : "Number of storms"
+                },
 
+                "color" : {
+                    "field" : "TYPE2", "type" : "nominal", "title" : "Storm type"
+                },
+
+                "tooltip" : [
+                    {"field" : "TYPE2", "type" : "nominal", "title" : "Storm type"},
+                    {"field" : "Year", "type" : "ordinal"},
+                    {"field" : "State", "type" : "nominal"}                        
+                ]
+            }
+        }        
+    ]
 }

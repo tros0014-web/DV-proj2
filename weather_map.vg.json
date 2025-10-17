@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-   	"title": { "text": "Average weather at major cities, 1980 to 2010" },
+   	"title": { "text": "Weather extremes, 1980 to 2010" },
     "projection" : {"type" : "equirectangular"},
 
     "width": 500,
@@ -10,11 +10,13 @@
     "params" : [
     {
         "name" : "whichType",
-        "value" : "Monthly rain (mm)",
+        "value" : "darkblue  Monthly rain (mm)",
         "bind" : {
             "input" : "select",
-            "options" : ["Temp max (C)","Temp min (C)", "Monthly rain (mm)"],
-            "name" : "Select weather: "
+            "options" : ["darkred  Temp max (C)","darkblue  Temp min (C)", 
+            "darkblue  Monthly rain (mm)" ],
+            "name" : "Select weather: ",
+            "labels" : ["Temp max (C)","Temp min (C)", "Monthly rain (mm)"]
         }
     }
     ],
@@ -41,7 +43,7 @@
 
             "transform" : [
                 {
-                    "filter" : { "field" :"Weather", "equal" : {"expr" :"whichType"}} 
+                    "filter" : { "field" :"Weather", "equal" : {"expr" : "split(whichType,'  ')[1]"}} 
                 }
             ],
 
@@ -56,11 +58,13 @@
                     "scale" : {
                         "type" : "quantize",
                         "nice" : 4,
-                        "scheme" : "greens"
+                        "scheme" : {"expr" : "split(whichType,'  ')[0]"},
+                        "reverse" : true
                     },
                     "legend" : {
-                        "title" : {"signal" : "whichType"}
-                    }
+                        "title" : {"signal" : "split(whichType,'  ')[1]"},
+                        "orient" : "bottom"
+                    }                    
                 },
 
                 "size" : {"value" : 2000},

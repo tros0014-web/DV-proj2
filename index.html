@@ -36,26 +36,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
 
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=Orbitron:wght@400..900&family=Rampart+One&family=Tilt+Prism&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="contain"> 
-        <h1> Storms in Australia</h1>
+        <h1 class="tilt-prism"> Storms in Australia</h1>
 
         <!-- Introduction & weather -->
         <div class="pure-g">
-            <div class="intro">
+            <div class="pure-u-1-2" id="intro">
                 <p> 
-                    Storms in Australia can cause significant harm, with around 350
-                <br>storms per year being considered severe, & 1 to 2 of these 
-                <br>causing recorded injury.
+                    Storms in Australia can cause significant harm, with around 
+                <br>350 storms per year being considered severe, & 1 to 2 of 
+                <br>these causing recorded injury. Weather varies across the 
+                <br>county but storms are more distributed for most types.
                 </p>
 
                 <h3> Weather extremes </h3>
                 <p>
-                    The map on the right considers the extreme values of an average
-                <br>year. Weather at each major city is averaged from 1980 to 2010. 
-                <br>Then the most extreme (max/min) value is noted. 
+                    The map on the right considers the extreme values of an
+                <br>average year. Weather at each major city is averaged from 
+                <br>1980 to 2010. Then the most extreme (max/min) value is
+                     noted. 
                 </p>       
                 
                 <h3> Reporting bias</h3>
@@ -76,8 +84,8 @@
         <div class="heading">
             <h3> All reported severe storms</h3>
             <p>
-                There have been <b>15,876</b> storms from 1980 to 2025.            
-            <br>Almost all of these <b>did not </b> cause significant damages. 
+                There have been <b>15,876</b> storms from 1980 to 2025. Select
+            <br>a type of storm in the map below and hover for more information.
             </p>
         </div>
 
@@ -95,8 +103,8 @@
         <div class="heading">
             <h3> Most significant severe storms</h3>
             <p>
-                There have been <b>72</b> storms from 1980 to 2025.            
-            <br>These storms have caused <b>injuries </b> & even death. Additional
+                There have been <b>72</b> storms from 1980 to 2025. These          
+            <br>storms have caused <b>injuries </b> & even death. Additional
             <br>information is available by hovering over each storm.
             </p>
         </div>
@@ -114,12 +122,14 @@
         <div class="heading">
         <h3> References</h3>
         <p>
-            Data sourced primarily from the Bureau of Meteorology (BOM)                
-        <br> supported with coordinates of cities from SimpleMaps (SM).
+            Data sourced primarily from the Bureau of Meteorology (BOM).                
+        <br> Supported with coordinates of cities from SimpleMaps (SM),
+        <br> & population statistics from the Bureau of Statistics (ABS).
         <ul>  
             <li> BOM - Major cities climate, <a href = "https://www.bom.gov.au/climate/australia/cities/ "> available here</a> </li>
-            <li> SM - Australian Cities, <a href = "https://simplemaps.com/data/au-cities"> available here</a> </li>
             <li> BOM - Severe Storms Archive, <a href = "https://www.bom.gov.au/australia/stormarchive/"> available here</a> </li>
+            <li> SM - Australian Cities, <a href = "https://simplemaps.com/data/au-cities"> available here</a> </li>
+            <li> ABS - National, state and territory population, <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release#states-and-territories"> available here</a></li>
         </ul>
         </p>
     </div>

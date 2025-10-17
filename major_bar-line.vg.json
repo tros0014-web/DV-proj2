@@ -7,12 +7,23 @@
 
     "vconcat" : [
         {
+        "encoding" : {
+            "x" : { 
+                "field" : "Year", "type" : "quantitative",
+                "axis" : {"format" : ".0f" },
+                "scale" : {"domain" : [1975,2025]}  
+            },
+                
+            "y" : { 
+                "field" : "Number of injuries", "type" : "quantitative"}
+        },
+
         "layer" : [
             {
-                "title" : "Over time (brush to filter bars)",
+                "title" : "Over time (drag to select a period)",
                 "width" : 300,
 
-                "mark" : "line",
+                "mark" : "circle",
 
                 "params" : [
                 {
@@ -22,47 +33,73 @@
                         "encodings" : ["x"]
                     }
                 }
-            ],
-
+                ],
                 "encoding" : {
-                    "x" : { 
-                        "field" : "Year", "type" : "quantitative",
-                        "axis" : {"format" : ".0f"}                        
-                    },
-                        
-                    "y" : { 
-                        "aggregate" : "sum", "title" : "Number of injuries",
-                        "field" : "Number of injuries", "type" : "quantitative"},
                     "color" : {
                         "field" : "TYPE2", "type" : "nominal", 
                         "title" : "Storm type"
                     },
                     
                     "tooltip" : [
-                        {"field" : "TYPE2", "type" : "nominal", "title" : "Storm type"},                       
+                        {"field" : "TYPE2", "type" : "nominal", "title" : "Storm type"},
                         {"field" : "Year", "type" : "ordinal"},
                         {"field" : "State", "type" : "nominal"},
 
-                        {"field" : "Number of injuries", "type" : "quantitative"}
-                    ]
+                        {"field" : "Number of injuries", "type" : "quantitative"},
+                        {"field" : "Number of deaths", "type" : "quantitative"},
+
+                        {"field" : "Feature", "type" : "nominal"},
+                        {"field" : "Measure", "type" : "quantitative"}
+                    ],
+                    
+                    "size" : {
+                        "value" : 40
+                    }
                 }
             },
-
             {
+                "transform" : [
+                    {
+                        "filter" : {"field" : "Year", "equal": 1995}
+                    },
+                    {
+                        "filter" : {"field" : "TYPE2", "equal": "wind"}
+                    },
+                    {
+                        "filter" : {"field" : "Latitude", "equal": -34.93}
+                    }
+                ],
+
                 "mark" : {
                     "type" : "text",
                     "text" : [
                         "In 1995 there were 9 wind",
                         "storms, causing 79 injuries",
                         "- largely in South Australia."],
-                    "align" : "center",
-                    "x" : "width",
-                    "dy" : -70, "dx" : -70
-                },
-                "data" : {
-                    "values" : [{}]
-                } 
-            }        
+                    "dx" : 10, "dy" : -10,
+                    "align" : "left"
+                }
+            },
+            {
+                "transform" : [
+                    {
+                        "filter" : {"field" : "Year", "equal": 2005}
+                    },
+                    {
+                        "filter" : {"field" : "TYPE2", "equal": "hail"}
+                    }
+                ],
+
+                "mark" : {
+                    "type" : "text",
+                    "text" : [
+                        "In 2005 a hail storm in the Northen",
+                        "Territory caused the most injuries",
+                        "of any one storm since 1980."],
+                        "dx" : 10,
+                        "align" : "left"
+                    }
+            }     
         ]
         },
         {
@@ -72,17 +109,32 @@
                 "width" : 300,
 
                 "transform" : [
-                    {"filter" : {"param" : "brushYear"} }                
+                    {
+                        "filter" : {"param" : "brushYear"} 
+                    },
+                    {
+                        "lookup" : "State",
+                        "from" : {
+                            "data" : {"url" : "data/Population est 25.csv"},
+                            "key" : "Abbrev",
+                            "fields" : ["Population"]
+                        }
+                    },
+                    {
+                        "calculate" : "10*datum['Number of injuries'] / datum.Population",
+                        "as" : "injPerPop"
+                    }
                 ],
-
                 "mark" : "bar",
 
                 "encoding" : {
                     "x" : { 
-                        "field" : "State", "type" : "nominal", "title" : "State"
+                        "field" : "State", "type" : "nominal",
+                        "sort" : {"field" : "injPerPop", "order" : "descending"}
                     },
                     "y" : {
-                        "field" : "Number of injuries", "type" : "quantitative"
+                        "field" : "injPerPop", "type" : "quantitative",
+                        "title" : "Injuries per 10,000 people"
                     },
                     
                     "color" : {
@@ -100,26 +152,23 @@
                         {"field" : "Feature", "type" : "nominal"},
                         {"field" : "Measure", "type" : "quantitative"}
                     ]
-                }
+                }               
             },
-
-            {
+          {
                 "mark" : {
                     "type" : "text",
                     "text" : [
-                        "Lightning injuries occur",
-                        "almost exclusively in Victoria,",
-                        "at 83% of all time. "],
-                    "align" : "center",
-                    "x" : "width",
-                    "dy" : -50, "dx" : 20
+                        "Injuries are normalised",
+                        "by state population."],
+                    "dx" : -10, "dy" : -10,
+                    "x" : "width"
                 },
                 "data" : {
                     "values" : [{}]
-                } 
-            }        
+                }
+            }   
         ]
-        }
+    }
     ]
 
 }

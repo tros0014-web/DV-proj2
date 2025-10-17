@@ -14,10 +14,10 @@
         "bind" : {
             "input" : "select",
             "options" : ["hail", "lightning", "rain", "wind"],
-            "name" : "Select storm type: "
+            "name" : "Select storm type: ",
+            "labels" :  ["Hail", "Lightning", "Rain", "Wind"]
         }
     }
-
     ],
 
     "layer" : [ 
@@ -58,13 +58,16 @@
                         "range" : [40, 80, 160, 320, 640]    
                     },
                     "legend" : {
-                        "padding" : 0
+                        "orient" : "bottom"
                     }
                 },
                 "color" : {"field" : "Number of deaths", "type" : "ordinal",
                     "scale" : { 
                         "range" : ["#2c7bb6","#ffff00", "#d7191c"]
-                    }             
+                    },
+                    "legend" : {
+                        "orient" : "bottom"
+                    }
                 },
                 
                 "opacity" : {"value" : 0.6},

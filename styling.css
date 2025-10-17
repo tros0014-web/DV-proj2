@@ -5,7 +5,7 @@
     border: 3px solid black;
 }
 
-.intro{
+#intro{
     background-color: lightgray ;
     padding : 0% 5% 0% 5%;
     width: 40%;    
@@ -18,9 +18,13 @@
     text-align: left;
 }
 
+
+/* ALL maps & charts, unique IDs */
+
 #map_weather_div{
     text-align: center;
-    padding: 0% 0% 2% 0%;
+    padding : 5 ;
+    padding-bottom: 2%;
 }
 
 #map_all_div {
@@ -31,15 +35,92 @@
 
 #smalls_all_div{
     text-align : center;
+    padding-top: 1%;
 }
 
 #smalls_major_div{
     text-align: center;
-    padding: 0% 0% 2% 5%;
+    padding-top: 1%;
 }
 
 #map_major_div {
     margin: auto;
     text-align: center;
     padding : 5 ;    
+}
+
+
+h1{
+    background-color: lightblue;
+    text-align: center;
+}
+
+h3{
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+
+  font-size : 24px
+}
+
+.tilt-prism {
+  font-family: "Tilt Prism", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "XROT" 0,
+    "YROT" 0;
+  font-size: 72px;
+}
+
+/* UNUSED OTHER Google Fonts classes    HEADINGS */
+
+.ubuntu-light {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ubuntu-regular {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ubuntu-medium {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ubuntu-bold {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+/* UNUSED OTHER Google Fonts classes    TITLE */
+
+.alumni-sans-collegiate-one-regular{
+  font-family: "Alumni Sans Collegiate One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
+}
+
+.rampart-one-regular{
+  font-family: "Rampart One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 60px;
+}
+
+.orbitron{
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
 }
