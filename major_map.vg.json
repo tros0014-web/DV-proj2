@@ -63,7 +63,7 @@
                 },
                 "color" : {"field" : "Number of deaths", "type" : "ordinal",
                     "scale" : { 
-                        "range" : ["#2c7bb6","#ffff00", "#d7191c"]
+                        "range" : ["#2c7bb6","#edc42c", "#d7191c"]
                     },
                     "legend" : {
                         "orient" : "bottom"

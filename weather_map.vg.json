@@ -76,7 +76,36 @@
                     {"field" : "Extreme value", "type" : "quantitative"}
                 ]
             }
-        }        
+        },
+        {
+            "data" : {
+                "url" : "data/Weather SLIM.csv"
+            },
+
+            "transform" : [
+                {
+                     "filter" : { "field" :"LOCATION", "equal" : "Alice Springs"} 
+                },
+                {
+                    "filter" : { "field" :"Weather", "equal" : {"expr" : "split(whichType,'  ')[1]"}} 
+                }
+            ],
+
+            "mark" : {
+                "type" : "text",
+                "text" : [
+                        "Alice Springs has the most",
+                        "extreme temperature range", 
+                        "from 3.9 C to 36.9 C." ],
+                "dx" : -80,
+                "dy" : -10
+            },
+
+            "encoding" : {             
+                "latitude" : {"field" : "Latitude", "type": "quantitative"},
+                "longitude" : {"field" : "Longitude", "type": "quantitative"}
+            }
+        }    
 
     ]
 }        

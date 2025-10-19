@@ -1,0 +1,102 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "data" : {
+        "url" : "data/Bulk ALL 80-25.csv"
+    },
+
+    "title" : "NOPE TOO PAINFUL TO FIX YEARS AXIS",
+
+    "vconcat" : [
+        {
+        "layer" : [
+            {
+                "title" : "Over time (drag to select a period)",
+                "width" : 300,
+
+            "mark" : "rect",
+
+                "params" : [
+                {
+                    "name" : "brushYear",
+                    "select" : {
+                        "type" : "interval",
+                        "encodings" : ["x"]
+                    }
+                }
+                ],
+
+                "encoding" : {
+                    "x" : { 
+                        "field" : "Year", "type" : "ordinal",
+                        "axis" : {
+                            "labels": false,
+                            "values" : [1990, 2000, 2010]
+                        }
+                        },
+                        
+                    "color" : { 
+                        "aggregate" : "count", "title" : "Number of storms"
+                    },
+
+                    "y" : {
+                        "field" : "TYPE2", "type" : "nominal", "title" : "Storm type"
+                    },
+                    
+                    "tooltip" : [
+                        {"field" : "TYPE2", "type" : "nominal", "title" : "Storm type"},
+                        {"field" : "Year", "type" : "ordinal"},
+                        {"field" : "State", "type" : "nominal"} ,
+                        {"aggregate" : "count"}
+                    ]
+                }
+            },
+
+            {
+                "mark" : {
+                    "type" : "text",
+                    "text" : [
+                        "Wind & rain storms were the",
+                        "most common by far at around",
+                        "6,700 & 5,800 storms respectively."],
+                    "align" : "center",
+                    "dy" : -70, "dx" : -50
+                },
+                "data" : {
+                    "values" : [{}]
+                }
+            }        
+        ]
+        },
+        {
+            "title" : "Between states",
+            "width" : 300,
+
+            "transform" : [
+                {"filter" : {"param" : "brushYear"} }                
+            ],
+
+            "mark" : "bar",
+
+            "encoding" : {
+                "x" : { 
+                    "field" : "State", "type" : "nominal", "title" : "State",
+                    "sort" : {"op" : "count", "order" : "descending"}
+                },
+                "y" : { 
+                    "aggregate" : "count", "title" : "Number of storms"
+                },
+
+                "color" : {
+                    "field" : "TYPE2", "type" : "nominal", "title" : "Storm type"
+                },
+
+                "tooltip" : [
+                    {"field" : "TYPE2", "type" : "nominal", "title" : "Storm type"},
+                    {"field" : "Year", "type" : "ordinal"},
+                    {"field" : "State", "type" : "nominal"}                        
+                ]
+            }
+        }        
+    ]
+}
